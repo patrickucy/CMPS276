@@ -1,0 +1,178 @@
+<div ng-app="controlPanel">
+
+    <table>
+        <tr>
+            <td>Select:</td>
+            <td>
+                <div ng-controller="selectController" class="md-padding" ng-cloak>
+                    <div>
+                        <div layout="row">
+                            <md-input-container>
+                                <label>DataSet</label>
+                                <md-select ng-model="selectedItem" md-selected-text="getSelectedText()">
+                                    <md-optgroup label="items">
+                                        <md-option ng-value="item" ng-repeat="item in items">
+                                            Item {{ item }}</md-option>
+                                    </md-optgroup>
+                                </md-select>
+                            </md-input-container>
+                        </div>
+                    </div>
+                </div>
+            </td>
+        </tr>
+
+        <tr>
+            <td>Compare:</td>
+            <td>
+                <div ng-controller="multiSelectController" class="md-padding" ng-cloak>
+                    <md-content>
+
+                        <div>
+                            <div layout="row">
+                                <md-input-container>
+                                    <label>Data</label>
+                                    <md-select ng-model="selectedVegetables"
+                                               md-on-close="clearSearchTerm()"
+                                               data-md-container-class="selectdemoSelectHeader"
+                                               multiple>
+                                        <md-select-header class="demo-select-header">
+                                            <input ng-model="searchTerm"
+                                                   type="search"
+                                                   placeholder="Search for a vegetable.."
+                                                   class="demo-header-searchbox _md-text">
+                                        </md-select-header>
+                                        <md-optgroup label="vegetables">
+                                            <md-option ng-value="vegetable" ng-repeat="vegetable in vegetables |
+              filter:searchTerm">{{ vegetable }}</md-option>
+                                        </md-optgroup>
+                                    </md-select>
+                                </md-input-container>
+                            </div>
+                        </div>
+                    </md-content>
+
+                </div>
+            </td>
+        </tr>
+        <tr>
+            <td>From:</td>
+            <td>
+                <div ng-controller="datePickerController" style='padding: 0px;' ng-cloak>
+                    <md-content>
+                        <md-datepicker ng-model="myDate" md-placeholder="Enter date"></md-datepicker>
+                    </md-content>
+                </div>
+            </td>
+        </tr>
+        <tr>
+            <td>To:</td>
+            <td>
+                <div ng-controller="datePickerController" style='padding: 0px;' ng-cloak>
+                    <md-content>
+                        <md-datepicker ng-model="myDate" md-placeholder="Enter date"></md-datepicker>
+                    </md-content>
+                </div>
+            </td>
+        </tr>
+    </table>
+
+
+</div>
+<!-- Date Picker -->
+<script type="text/javascript">
+    var app = angular.module('controlPanel', ['ngMaterial', 'ngMessages']);
+
+    app.controller('datePickerController', function ($scope) {
+        // Date Picker
+        $scope.myDate = new Date();
+        $scope.minDate = new Date(
+                $scope.myDate.getFullYear(),
+                $scope.myDate.getMonth() - 2,
+                $scope.myDate.getDate());
+        $scope.maxDate = new Date(
+                $scope.myDate.getFullYear(),
+                $scope.myDate.getMonth() + 2,
+                $scope.myDate.getDate());
+        $scope.onlyWeekendsPredicate = function (date) {
+            var day = date.getDay();
+            return day === 0 || day === 6;
+        }
+
+
+    });
+
+    app.controller('selectController', function ($scope) {
+        // Select Picker
+        $scope.items = [1, 2, 3, 4, 5, 6, 7];
+        $scope.selectedItem;
+        $scope.getSelectedText = function () {
+            if ($scope.selectedItem !== undefined) {
+                return "selected: " + $scope.selectedItem;
+            } else {
+                return "Please select an DataSet";
+            }
+        };
+    });
+
+    app.controller('multiSelectController', function ($scope, $element) {
+        // MultiSelect Picker
+        $scope.vegetables = ['Corn', 'Onions', 'Kale', 'Arugula', 'Peas', 'Zucchini'];
+        $scope.searchTerm;
+        $scope.clearSearchTerm = function () {
+            $scope.searchTerm = '';
+        };
+        // The md-select directive eats keydown events for some quick select
+        // logic. Since we have a search input here, we don't need that logic.
+        $element.find('input').on('keydown', function (ev) {
+            ev.stopPropagation();
+        });
+    });
+
+
+</script>
+
+<!-- Compare Picker -->
+
+<style>
+    .datepickerdemoBasicUsage {
+        /** Demo styles for mdCalendar. */
+    }
+
+    .datepickerdemoBasicUsage md-content {
+        padding-bottom: 200px;
+    }
+
+    .datepickerdemoBasicUsage .validation-messages {
+        font-size: 12px;
+        color: #dd2c00;
+        margin: 10px 0 0 25px;
+    }
+
+    .selectdemoSelectHeader {
+        /* Please note: All these selectors are only applied to children of elements with the 'selectdemoSelectHeader' class */
+    }
+
+    .selectdemoSelectHeader .demo-header-searchbox {
+        border: none;
+        outline: none;
+        height: 100%;
+        width: 100%;
+        padding: 0;
+    }
+
+    .selectdemoSelectHeader .demo-select-header {
+        box-shadow: 0 1px 0 0 rgba(0, 0, 0, 0.1), 0 0 0 0 rgba(0, 0, 0, 0.14), 0 0 0 0 rgba(0, 0, 0, 0.12);
+        padding-left: 10.667px;
+        height: 48px;
+        cursor: pointer;
+        position: relative;
+        display: flex;
+        align-items: center;
+        width: auto;
+    }
+
+    .selectdemoSelectHeader md-content._md {
+        max-height: 240px;
+    }
+</style>

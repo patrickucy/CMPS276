@@ -1,0 +1,54 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <!-- Angular Material style sheet -->
+    <link rel="stylesheet"
+          href="http://ajax.googleapis.com/ajax/libs/angular_material/1.1.0-rc2/angular-material.min.css">
+    <!-- Latest compiled and minified CSS -->
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.6/css/bootstrap.min.css"
+          integrity="sha384-1q8mTJOASx8j1Au+a5WDVnPi2lkFfwwEAa8hDDdjZlpLegxhjVME1fgjWPGmkzs7" crossorigin="anonymous">
+
+    <title>CMPS276</title>
+</head>
+<!-- Angular Material requires Angular.js Libraries -->
+<script src="http://ajax.googleapis.com/ajax/libs/angularjs/1.5.3/angular.min.js"></script>
+<script src="http://ajax.googleapis.com/ajax/libs/angularjs/1.5.3/angular-animate.min.js"></script>
+<script src="http://ajax.googleapis.com/ajax/libs/angularjs/1.5.3/angular-aria.min.js"></script>
+<script src="http://ajax.googleapis.com/ajax/libs/angularjs/1.5.3/angular-messages.min.js"></script>
+
+<!-- Angular Material Library -->
+<script src="http://ajax.googleapis.com/ajax/libs/angular_material/1.1.0-rc2/angular-material.min.js"></script>
+
+<body>
+
+<div class="container-fluid">
+
+    <h1 class="text-center">Data Visualization</h1>
+
+    <!-- DATA VISUALIZATION START -->
+    <div class="panel panel-default" name="dataVisualization">
+        <div class="panel-heading">
+            <h3 class="panel-title">Data Visualization Panel</h3>
+        </div>
+        <div class="panel-body">
+            {% include 'data_visualization_panel.html' %}
+        </div>
+    </div>
+    <!-- DATA VISUALIZATION END -->
+
+
+    <!-- DATA TABLE START -->
+    {% include 'data_detail_panel.html' %}
+
+    <!-- DATA TABLE END -->
+
+
+
+
+
+</body>
+<script type="text/javascript">
+
+</script>
+</html>
