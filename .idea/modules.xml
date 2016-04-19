@@ -3,6 +3,7 @@
   <component name="ProjectModuleManager">
     <modules>
       <module fileurl="file://$PROJECT_DIR$/.idea/CMPS276.iml" filepath="$PROJECT_DIR$/.idea/CMPS276.iml" />
+      <module fileurl="file://$USER_HOME$/Desktop/slugiot-server/.idea/slugiot-server.iml" filepath="$USER_HOME$/Desktop/slugiot-server/.idea/slugiot-server.iml" />
     </modules>
   </component>
 </project>

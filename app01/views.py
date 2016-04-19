@@ -13,6 +13,10 @@ def test(request):
     return render_to_response('test.html')
 
 
+def dataVisual(request):
+    return render_to_response('data_visualization_panel.html')
+
+
 def getData(request):
     data = [
         {

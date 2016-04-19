@@ -1,0 +1,363 @@
+<div id="chartdiv" style="width: 100%; height: 300px;"></div>
+
+<button class="btn btn-default" onclick="refreshData()" type="submit" id="btnRefreshData">Refresh Data</button>
+
+
+<script src="https://www.amcharts.com/lib/3/amcharts.js"></script>
+<script src="https://www.amcharts.com/lib/3/serial.js"></script>
+<script src="https://www.amcharts.com/lib/3/themes/light.js"></script>
+
+
+<script type="text/javascript">
+    var chart;
+    var chartData = [];
+    var chartCursor;
+    var day = 0;
+    var firstDate = new Date();
+    firstDate.setDate(firstDate.getDate() - 500);
+
+
+    function refreshData() {
+        $.get('ajax/', function (data) {
+            chart.dataProvider = data;
+            chart.validateData();
+            {#            alert('Load was performed.');#}
+        });
+    }
+
+{#    var myCharData = [];#}
+    var myCharData = [{
+        "date": "2013-01-16",
+        "market1": 71,
+        "market2": 75,
+        "sales1": 5,
+        "sales2": 8
+    }, {
+        "date": "2013-01-17",
+        "market1": 74,
+        "market2": 78,
+        "sales1": 4,
+        "sales2": 6
+    }, {
+        "date": "2013-01-18",
+        "market1": 78,
+        "market2": 88,
+        "sales1": 5,
+        "sales2": 2
+    }, {
+        "date": "2013-01-19",
+        "market1": 85,
+        "market2": 89,
+        "sales1": 8,
+        "sales2": 9
+    }, {
+        "date": "2013-01-20",
+        "market1": 82,
+        "market2": 89,
+        "sales1": 9,
+        "sales2": 6
+    }, {
+        "date": "2013-01-21",
+        "market1": 83,
+        "market2": 85,
+        "sales1": 3,
+        "sales2": 5
+    }, {
+        "date": "2013-01-22",
+        "market1": 88,
+        "market2": 92,
+        "sales1": 5,
+        "sales2": 7
+    }, {
+        "date": "2013-01-23",
+        "market1": 85,
+        "market2": 90,
+        "sales1": 7,
+        "sales2": 6
+    }, {
+        "date": "2013-01-24",
+        "market1": 85,
+        "market2": 91,
+        "sales1": 9,
+        "sales2": 5
+    }, {
+        "date": "2013-01-25",
+        "market1": 80,
+        "market2": 84,
+        "sales1": 5,
+        "sales2": 8
+    }, {
+        "date": "2013-01-26",
+        "market1": 87,
+        "market2": 92,
+        "sales1": 4,
+        "sales2": 8
+    }, {
+        "date": "2013-01-27",
+        "market1": 84,
+        "market2": 87,
+        "sales1": 3,
+        "sales2": 4
+    }, {
+        "date": "2013-01-28",
+        "market1": 83,
+        "market2": 88,
+        "sales1": 5,
+        "sales2": 7
+    }, {
+        "date": "2013-01-29",
+        "market1": 84,
+        "market2": 87,
+        "sales1": 5,
+        "sales2": 8
+    }, {
+        "date": "2013-01-30",
+        "market1": 81,
+        "market2": 85,
+        "sales1": 4,
+        "sales2": 7
+    }];
+
+    // generate some random data, quite different range
+    function generateChartData() {
+        for (day = 0; day < 50; day++) {
+            var newDate = new Date(firstDate);
+            newDate.setDate(newDate.getDate() + day);
+
+            var visits = Math.round(Math.random() * 40) - 20;
+
+            chartData.push({
+                date: newDate,
+                visits: visits
+            });
+        }
+        console.log(chartData);
+    }
+    {#    function refreshData() {#}
+    {#        chart.dataProvider = [];#}
+    {#        chart.validateData();#}
+    {#        console.log(1);#}
+    {#    }#}
+
+    // create chart
+    AmCharts.ready(function () {
+        // generate some data first
+        generateChartData();
+
+        // MAKE CHART
+        //chart = new AmCharts.makeChart();
+
+
+        // SERIAL CHART
+        chart = new AmCharts.AmSerialChart();
+        chart.path
+        chart.pathToImages = "http://www.amcharts.com/lib/images/";
+        chart.marginTop = 0;
+        chart.marginRight = 10;
+        chart.autoMarginOffset = 5;
+        chart.zoomOutButton = {
+            backgroundColor: '#000000',
+            backgroundAlpha: 0.15
+        };
+        chart.dataProvider = myCharData;
+        chart.categoryField = "date";
+
+
+        chart.startDuration = 2;
+        chart.theme = "light";
+        chart.dataDateFormat = "YYYY-MM-DD";
+        chart.precision = 2;
+
+
+        // AXES
+        // category
+        // start to parse!!!!!!
+        var categoryAxis = chart.categoryAxis;
+        categoryAxis.parseDates = true; // as our data is date-based, we set parseDates to true
+        //categoryAxis.minPeriod = "DD"; // our data is daily, so we set minPeriod to DD
+        categoryAxis.dashLength = 1;
+        //categoryAxis.gridAlpha = 0.15;
+        //categoryAxis.axisColor = "#DADADA";
+
+        // valueAxe
+        // valueAxis1
+        var valueAxis1 = new AmCharts.ValueAxis();
+        valueAxis1.id = "v1";
+        valueAxis1.title = "Sales";
+        valueAxis1.position = "left";
+        {#        valueAxis1.axisAlpha = 0.2;#}
+        {#        valueAxis1.dashLength = 1;#}
+        valueAxis1.autoGridCount = "false";
+        valueAxis1.labelFunction = function (value) {
+            return "$" + Math.round(value) + "M"
+        }
+        //chart.addValueAxis(valueAxis1);
+        // valueAxis1
+        var valueAxis2 = new AmCharts.ValueAxis();
+        valueAxis2.id = "v2";
+        valueAxis2.title = "Market Days";
+        valueAxis2.position = "right";
+        {#        valueAxis1.axisAlpha = 0.2;#}
+        {#        valueAxis1.dashLength = 1;#}
+        valueAxis2.gridAlpha = 0;
+        valueAxis2.autoGridCount = "false";
+        //chart.addValueAxis(valueAxis2);
+        chart.valueAxes = [valueAxis1, valueAxis2];
+
+        // legent
+        {#        var legend = chart.legend();#}
+        {#        legend.useGraphSettings = true;#}
+        {#        legend.position = "top";#}
+        var legend = new AmCharts.AmLegend();
+        legend.useGraphSettings = true;
+        legend.position = "top";
+        chart.addLegend(legend);
+
+        // balloon
+        chart.balloon.shadowAlpha = 10;
+        // GRAPH
+        {#        var graph = new AmCharts.AmGraph();#}
+        {#        graph.title = "red line";#}
+        {#        graph.valueField = "visits";#}
+        {#        graph.bullet = "round";#}
+        {#        graph.bulletBorderColor = "#FFFFFF";#}
+        {#        graph.bulletBorderThickness = 2;#}
+        {#        graph.lineThickness = 2;#}
+        {#        graph.lineColor = "#b5030d";#}
+        {#        graph.negativeLineColor = "#0352b5";#}
+        {#        graph.hideBulletsCount = 50; // this makes the chart to hide bullets when there are more than 50 series in selection#}
+        {#        chart.addGraph(graph);#}
+
+        var graph1 = new AmCharts.AmGraph();
+        graph1.id = "g3";
+        graph1.valueAxis = "v1";
+        graph1.lineColor = "#e1ede9";
+        graph1.fileColor = "#e1ede9";
+        graph1.fillAlphas = 1;
+        graph1.type = "column";
+        graph1.title = "Target Sales";
+        graph1.valueField = "sales1";
+        graph1.cluestered = false;
+        graph1.columnWidth = 0.3;
+        graph1.legendValueText = "$[[value]]M";
+        graph1.balloonText = "[[title]]<br/><b style='font-size: 130%'>$[[value]]M</b>";
+        chart.addGraph(graph1);
+
+        var graph2 = new AmCharts.AmGraph();
+        graph2.id = "g4";
+        graph2.valueAxis = "v1";
+        graph2.lineColor = "#62cf73";
+        graph2.fileColor = "#62cf73";
+        graph2.fillAlphas = 1;
+        graph2.type = "column";
+        graph2.title = "Actual Sales";
+        graph2.valueField = "sales2";
+        graph2.cluestered = true;
+        graph2.columnWidth = 0.5;
+        graph2.legendValueText = "$[[value]]M";
+        graph2.balloonText = "[[title]]<br/><b style='font-size: 130%'>$[[value]]M</b>";
+        chart.addGraph(graph2);
+
+        var graph3 = new AmCharts.AmGraph();
+        graph3.id = "g1";
+        graph3.valueAxis = "v2";
+        graph3.bullet = "round";
+        graph3.bulletBorderAlpha = 1;
+        graph3.bulletColor = "#FFFFFF";
+        graph3.bulletSize = 5;
+        graph3.hideBulletsCount = 50;
+        graph3.lineThickness = 2;
+        graph3.lineColor = "#20acd4";
+        //graph3.fileColor = "#62cf73";
+        //graph3.fillAlphas = 1;
+        graph3.type = "smoothedLine";
+        graph3.title = "Market Days";
+        graph3.useLineColorForBulletBorder = true;
+        graph3.valueField = "market1";
+        //graph3.cluestered = true;
+        //graph3.columnWidth = 0.5;
+        //graph3.legendValueText = "$[[value]]M";
+        graph3.balloonText = "[[title]]<br/><b style='font-size: 130%'>$[[value]]M</b>";
+        chart.addGraph(graph3);
+
+        var graph4 = new AmCharts.AmGraph();
+        graph4.id = "g2";
+        graph4.valueAxis = "v2";
+        graph4.bullet = "round";
+        graph4.bulletBorderAlpha = 1;
+        graph4.bulletColor = "#FFFFFF";
+        graph4.bulletSize = 5;
+        graph4.hideBulletsCount = 50;
+        graph4.lineThickness = 2;
+        graph4.lineColor = "#e1ede9";
+        //graph3.fileColor = "#62cf73";
+        //graph3.fillAlphas = 1;
+        graph4.dashLength = 5;
+        graph4.type = "smoothedLine";
+        graph4.title = "Market Days ALL";
+        graph4.useLineColorForBulletBorder = true;
+        graph4.valueField = "market2";
+        //graph3.cluestered = true;
+        //graph3.columnWidth = 0.5;
+        //graph3.legendValueText = "$[[value]]M";
+        graph4.balloonText = "[[title]]<br/><b style='font-size: 130%'>$[[value]]M</b>";
+        chart.addGraph(graph4);
+
+        // CURSOR
+        var chartCursor = new AmCharts.ChartCursor();
+        chartCursor.pan = true;
+        chartCursor.valueLineEnabled = true;
+        chartCursor.valueLineBalloonEnabled = true;
+        chartCursor.cursorAlpha = 0;
+        chartCursor.valueLineAlpha = 0.2;
+        //chartCursor.cursorPosition = "mouse";
+        chart.addChartCursor(chartCursor);
+
+        // SCROLLBAR
+        var chartScrollbar = new AmCharts.ChartScrollbar();
+        chartScrollbar.graph = "g1";
+        chartScrollbar.oppositeAxis = false;
+        chartScrollbar.offset = 30;
+        chartScrollbar.scrollbarHeight = 50;
+        chartScrollbar.backgroundAlpha = 0;
+        chartScrollbar.selectedBackgroundAlpha = 0.1;
+        chartScrollbar.selectedBackgroundColor = "#888888";
+        chartScrollbar.graphFillAlpha = 0;
+        chartScrollbar.graphLineAlpha = 0.5;
+        chartScrollbar.selectedGraphFillAlpha = 0;
+        chartScrollbar.selectedGraphLineAlpha = 1;
+        chartScrollbar.autoGridCount = true;
+        chartScrollbar.color = "#AAAAAA";
+{#        chartScrollbar.color = "#FFFFFF";#}
+{#        chartScrollbar.autoGridCount = true;#}
+        chart.addChartScrollbar(chartScrollbar);
+
+        // WRITE
+        chart.write("chartdiv");
+
+            // set up the chart to update every second
+{#            setInterval(function () {#}
+{#                // normally you would load new datapoints here,#}
+{#                // but we will just generate some random values#}
+{#                // and remove the value from the beginning so that#}
+{#                // we get nice sliding graph feeling#}
+{##}
+{#                // remove datapoint from the beginning#}
+{#                chart.dataProvider.shift();#}
+{##}
+{#                // add new one at the end#}
+{#                day++;#}
+{#                var newDate = new Date(firstDate);#}
+{#                newDate.setDate(newDate.getDate() + day);#}
+{#                var visits = Math.round(Math.random() * 40) - 20;#}
+{#                chart.dataProvider.push({#}
+{#                    date: newDate,#}
+{#                    visits: visits#}
+{#                });#}
+{#                chart.validateData();#}
+{#            }#}
+{#            );#}
+    });
+
+
+</script>

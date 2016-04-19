@@ -23,6 +23,7 @@ urlpatterns = [
     url(r'^admin/', admin.site.urls),
     url(r'^test/$', views.test),
     url(r'^getData/', views.getData),
+    url(r'^dataVisual/', views.dataVisual),
     url(r'^$', views.index),
 
 
