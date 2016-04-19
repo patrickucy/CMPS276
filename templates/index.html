@@ -16,7 +16,6 @@
     <script src="http://ajax.googleapis.com/ajax/libs/angular_material/1.1.0-rc2/angular-material.min.js"></script>
 
 
-
     <!-- Bootstrap CSS & JS-->
     <!-- Latest compiled and minified CSS -->
     <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.6/css/bootstrap.min.css"
@@ -29,24 +28,47 @@
             crossorigin="anonymous"></script>
 
 
-
     <!-- Bootstrap select -->
     <link rel="stylesheet"
           href="https://cdnjs.cloudflare.com/ajax/libs/bootstrap-select/1.10.0/css/bootstrap-select.min.css">
     <script src="https://cdnjs.cloudflare.com/ajax/libs/bootstrap-select/1.10.0/js/bootstrap-select.min.js"></script>
 
 
+    <!-- Bootstrap Datepicker -->
+    <script src="/static/bootstrap_datepicker/js/bootstrap-datepicker.min.js"></script>
+    <link rel="stylesheet" href="/static/bootstrap_datepicker/css/bootstrap-datepicker3.min.css">
+
+
+    <!-- amCharts-->
+    <script src="https://www.amcharts.com/lib/3/amcharts.js"></script>
+    <script src="https://www.amcharts.com/lib/3/serial.js"></script>
+    <script src="https://www.amcharts.com/lib/3/themes/light.js"></script>
+
+
     <title>CMPS276</title>
 </head>
 
 
-<body>
+<body ng-app="myApp">
 
+<nav class="navbar navbar-default">
+    <div class="container-fluid">
+        <div class="navbar-header">
+            <button type="button" class="navbar-toggle collapsed" data-toggle="collapse"
+                    data-target="#bs-example-navbar-collapse-1" aria-expanded="false">
+                <span class="sr-only">Toggle navigation</span>
+                <span class="icon-bar"></span>
+                <span class="icon-bar"></span>
+                <span class="icon-bar"></span>
+            </button>
+            <a class="navbar-brand" href="#">Data Visualization</a>
+        </div>
+
+    </div>
+</nav>
 
 <div class="container-fluid">
 
-
-    <h1 class="text-center">Data Visualization</h1>
 
     <!-- DATA VISUALIZATION START -->
     <div class="panel panel-default" name="dataVisualization">
@@ -54,20 +76,431 @@
             <h3 class="panel-title">Data Visualization Panel</h3>
         </div>
         <div class="panel-body">
-            {% include 'data_visualization_panel.html' %}
+            <div class="row">
+
+                <!-- CONTROL PANEL -->
+                <div class="col-sm-3">
+                    <table>
+                        <tr>
+                            <td>
+                                <label>Select:</label> <br>
+                                <select class="selectpicker" data-live-search="true" title="Choose DataSet...">
+                                    <option>Mustard</option>
+                                    <option>Ketchup</option>
+                                    <option>Relish</option>
+                                </select>
+                            </td>
+                        </tr>
+
+                        <tr>
+                            <td>
+                                <label>Compare:</label> <br>
+                                <select class="selectpicker" data-live-search="true" multiple data-max-options="3">
+                                    <optgroup label="Picnic">
+                                        <option>Mustard</option>
+                                        <option>Ketchup</option>
+                                        <option>Relish</option>
+                                    </optgroup>
+                                    <optgroup label="Camping">
+                                        <option>Tent</option>
+                                        <option>Flashlight</option>
+                                        <option>Toilet Paper</option>
+                                    </optgroup>
+                                </select>
+                            </td>
+                        </tr>
+                        <tr>
+                            <td>
+                                <label>Time Span:</label>
+                                <div class="input-group input-daterange">
+                                    <input type="text" class="form-control" value="2012-04-05">
+                                    <span class="input-group-addon">to</span>
+                                    <input type="text" class="form-control" value="2012-04-19">
+                                </div>
+                            </td>
+                        </tr>
+
+                        <tr>
+                            <td>
+                                <br><br>
+                                <button id="refreshButton" onclick="refresh();" type="button"
+                                        class="btn btn-info btn-block">Refresh
+                                </button>
+                            </td>
+                        </tr>
+                    </table>
+                </div>
+
+
+                <!-- DATA VISUALIZATION amChart -->
+                <div class="col-sm-9">
+                    <div id="chartdiv"></div>
+                </div>
+            </div>
         </div>
     </div>
     <!-- DATA VISUALIZATION END -->
 
+    <!-- DATA DETAIL START -->
+    <div class="panel panel-default" name="dataDetail" ng-controller="dataDetailController">
+        <div class="panel-heading">
+            <h3 class="panel-title">Data Detail Panel</h3>
+        </div>
+        <div class="panel-body">
+            <form class="navbar-form navbar-left" role="search">
+                <div class="form-group">
+                    <input type="text" class="form-control" placeholder="search for...">
+                </div>
+                <button type="submit" class="btn btn-default">Search</button>
+            </form>
+            <table class="table table-hover">
+                <thead>
 
-    <!-- DATA TABLE START -->
-    {% include 'data_detail_panel.html' %}
+                <tr>
+                    <th>#</th>
+                    <th>Username</th>
+                    <th>Password</th>
+                    <th>Last Name</th>
+                    <th>First Name</th>
+                    <th>Age</th>
 
+                </tr>
+                </thead>
+                <tbody id="dataTableBody">
+                <tr ng-repeat="product in productData | filter: {id :search} | orderBy : order + orderType ">
+                    <!-- | filter : search -->
+                    <th scope="row"> </th>
+                    <td>{{ product.id }}</td>
+                    <td>{{ product.name }}</td>
+                    <td>{{ product.price | currency : '(RMB)' }}</td>
+
+                </tr>
+                <tr>
+                    <th scope="row">1</th>
+                    <td>@fake</td>
+                    <td>fake123</td>
+                    <td>faletom</td>
+                    <td>fakejack</td>
+                    <td>fake23</td>
+                </tr>
+                <tr>
+                    <th scope="row">2</th>
+                    <td>@fake</td>
+                    <td>fake123</td>
+                    <td>faletom</td>
+                    <td>fakejack</td>
+                    <td>fake23</td>
+                </tr>
+                <tr>
+                    <th scope="row">3</th>
+                    <td>@fake</td>
+                    <td>fake123</td>
+                    <td>faletom</td>
+                    <td>fakejack</td>
+                    <td>fake23</td>
+                </tr>
+                </tbody>
+            </table>
+        </div>
+    </div>
     <!-- DATA TABLE END -->
 
 </div>
 
+<script>
+    angular.module('myApp', []).service('data', function () {
+        return [
+            {
+                id: 3333,
+                name: 'iphone',
+                price: 5400
+            }, {
+                id: 2134,
+                name: 'iphone2',
+                price: 2400
+            }, {
+                id: 1435,
+                name: 'iphone4',
+                price: 4400
+            }, {
+                id: 4636,
+                name: 'iphone5',
+                price: 5200
+            }
+        ];
+    }).controller('dataDetailController', function ($scope, data) {
+        $scope.data = data;
+        $scope.orderType = 'id';
+        $scope.order = ''; // descending
 
+        $scope.changeOrder = function (type) {
+            $scope.orderType = type;
+            if ($scope.order === '') {
+                $scope.order = '-';
+            } else {
+                $scope.order = '';
+            }
+        }
+    });
+
+</script>
+<script type="text/javascript">
+
+
+    // ------------  Refresh Button  ------------
+    function refresh() {
+        $.ajax({
+            'url': '/getData',
+            'type': 'get',
+            'dataType': 'json',
+            'success': function (data) {
+                // data is from the server side
+
+                $('#dataTableBody').empty();
+                for (var i = 0; i < data.length; i++) {
+                    var s = data[i];
+                    $('#dataTableBody').append('<tr> <th scope="row">' + (i + 1) + '</th> <td>' + s.username + '</td> <td>' + s.password + '</td> <td>' + s.last_name + '</td> <td>' + s.first_name + '</td> <td>' + s.age + '</td> </tr>');
+                }
+            },
+            'error': function () {
+                $('#dataTableBody').empty();
+                //alert('Whoops, It seems we got a slight problem here');
+                $('#dataTableBody').append("<tr> <td colspan='3'> We got a problem here </td> </tr>");
+            }
+
+        });
+    }
+
+    // date picker
+    $('.input-daterange input').each(function () {
+        $(this).datepicker("clearDates");
+    });
+
+    // amChart
+    var dataSource = [{
+        "date": "2013-01-16",
+        "market1": 71,
+        "market2": 75,
+        "sales1": 5,
+        "sales2": 8
+    }, {
+        "date": "2013-01-17",
+        "market1": 74,
+        "market2": 78,
+        "sales1": 4,
+        "sales2": 6
+    }, {
+        "date": "2013-01-18",
+        "market1": 78,
+        "market2": 88,
+        "sales1": 5,
+        "sales2": 2
+    }, {
+        "date": "2013-01-19",
+        "market1": 85,
+        "market2": 89,
+        "sales1": 8,
+        "sales2": 9
+    }, {
+        "date": "2013-01-20",
+        "market1": 82,
+        "market2": 89,
+        "sales1": 9,
+        "sales2": 6
+    }, {
+        "date": "2013-01-21",
+        "market1": 83,
+        "market2": 85,
+        "sales1": 3,
+        "sales2": 5
+    }, {
+        "date": "2013-01-22",
+        "market1": 88,
+        "market2": 92,
+        "sales1": 5,
+        "sales2": 7
+    }, {
+        "date": "2013-01-23",
+        "market1": 85,
+        "market2": 90,
+        "sales1": 7,
+        "sales2": 6
+    }, {
+        "date": "2013-01-24",
+        "market1": 85,
+        "market2": 91,
+        "sales1": 9,
+        "sales2": 5
+    }, {
+        "date": "2013-01-25",
+        "market1": 80,
+        "market2": 84,
+        "sales1": 5,
+        "sales2": 8
+    }, {
+        "date": "2013-01-26",
+        "market1": 87,
+        "market2": 92,
+        "sales1": 4,
+        "sales2": 8
+    }, {
+        "date": "2013-01-27",
+        "market1": 84,
+        "market2": 87,
+        "sales1": 3,
+        "sales2": 4
+    }, {
+        "date": "2013-01-28",
+        "market1": 83,
+        "market2": 88,
+        "sales1": 5,
+        "sales2": 7
+    }, {
+        "date": "2013-01-29",
+        "market1": 84,
+        "market2": 87,
+        "sales1": 5,
+        "sales2": 8
+    }, {
+        "date": "2013-01-30",
+        "market1": 81,
+        "market2": 85,
+        "sales1": 4,
+        "sales2": 7
+    }];
+
+    function clearData() {
+        {#        alert('Clear Data Button');#}
+        dataSource = [];
+        chart.$
+    }
+    var chart = AmCharts.makeChart("chartdiv", {
+        "type": "serial",
+        "theme": "light",
+        "dataDateFormat": "YYYY-MM-DD",
+        "precision": 2,
+        "valueAxes": [{
+            "id": "v1",
+            "title": "Sales",
+            "position": "left",
+            "autoGridCount": false,
+            "labelFunction": function (value) {
+                return "$" + Math.round(value) + "M";
+            }
+        }, {
+            "id": "v2",
+            "title": "Market Days",
+            "gridAlpha": 0,
+            "position": "right",
+            "autoGridCount": false
+        }],
+        "graphs": [{
+            "id": "g3",
+            "valueAxis": "v1",
+            "lineColor": "#e1ede9",
+            "fillColors": "#e1ede9",
+            "fillAlphas": 1,
+            "type": "column",
+            "title": "Actual Sales",
+            "valueField": "sales2",
+            "clustered": false,
+            "columnWidth": 0.5,
+            "legendValueText": "$[[value]]M",
+            "balloonText": "[[title]]<br/><b style='font-size: 130%'>$[[value]]M</b>"
+        }, {
+            "id": "g4",
+            "valueAxis": "v1",
+            "lineColor": "#62cf73",
+            "fillColors": "#62cf73",
+            "fillAlphas": 1,
+            "type": "column",
+            "title": "Target Sales",
+            "valueField": "sales1",
+            "clustered": false,
+            "columnWidth": 0.3,
+            "legendValueText": "$[[value]]M",
+            "balloonText": "[[title]]<br/><b style='font-size: 130%'>$[[value]]M</b>"
+        }, {
+            "id": "g1",
+            "valueAxis": "v2",
+            "bullet": "round",
+            "bulletBorderAlpha": 1,
+            "bulletColor": "#FFFFFF",
+            "bulletSize": 5,
+            "hideBulletsCount": 50,
+            "lineThickness": 2,
+            "lineColor": "#20acd4",
+            "type": "smoothedLine",
+            "title": "Market Days",
+            "useLineColorForBulletBorder": true,
+            "valueField": "market1",
+            "balloonText": "[[title]]<br/><b style='font-size: 130%'>[[value]]</b>"
+        }, {
+            "id": "g2",
+            "valueAxis": "v2",
+            "bullet": "round",
+            "bulletBorderAlpha": 1,
+            "bulletColor": "#FFFFFF",
+            "bulletSize": 5,
+            "hideBulletsCount": 50,
+            "lineThickness": 2,
+            "lineColor": "#e1ede9",
+            "type": "smoothedLine",
+            "dashLength": 5,
+            "title": "Market Days ALL",
+            "useLineColorForBulletBorder": true,
+            "valueField": "market2",
+            "balloonText": "[[title]]<br/><b style='font-size: 130%'>[[value]]</b>"
+        }],
+        "chartScrollbar": {
+            "graph": "g1",
+            "oppositeAxis": false,
+            "offset": 30,
+            "scrollbarHeight": 50,
+            "backgroundAlpha": 0,
+            "selectedBackgroundAlpha": 0.1,
+            "selectedBackgroundColor": "#888888",
+            "graphFillAlpha": 0,
+            "graphLineAlpha": 0.5,
+            "selectedGraphFillAlpha": 0,
+            "selectedGraphLineAlpha": 1,
+            "autoGridCount": true,
+            "color": "#AAAAAA"
+        },
+        "chartCursor": {
+            "pan": true,
+            "valueLineEnabled": true,
+            "valueLineBalloonEnabled": true,
+            "cursorAlpha": 0,
+            "valueLineAlpha": 0.2
+        },
+        "categoryField": "date",
+        "categoryAxis": {
+            "parseDates": true,
+            "dashLength": 1,
+            "minorGridEnabled": true
+        },
+        "legend": {
+            "useGraphSettings": true,
+            "position": "top"
+        },
+        "balloon": {
+            "borderThickness": 1,
+            "shadowAlpha": 0
+        },
+        "export": {
+            "enabled": true
+        },
+        "dataProvider": dataSource
+    });
+</script>
+<!-- amChart CSS -->
+<style>
+    #chartdiv {
+        width: 100%;
+        height: 500px;
+    }
+</style>
 </body>
 
 </html>

@@ -10,3 +10,13 @@ class FakeData(models.Model):
     last_name = models.CharField(max_length=10)
     first_name = models.CharField(max_length=10)
     age = models.IntegerField()
+
+    def as_json(self):
+        return {
+            'id': self.id,
+            'username': self.username,
+            'password': self.password,
+            'last_name': self.last_name,
+            'first_name': self.first_name,
+            'age': self.age
+        }
