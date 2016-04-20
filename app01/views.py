@@ -14,11 +14,7 @@ def test(request):
     return render_to_response('test.html')
 
 
-def dataVisual(request):
-    return render_to_response('data_visualization_panel.html')
-
-
-def getData(request):
+def get_data(request):
     data = [
         {
             'username': 'patrick',
@@ -61,9 +57,8 @@ def getData(request):
     print "##################", start_month, "*", start_day, "*", start_year, ":", end_month, "*", end_day, "*", end_year
 
     start_date = datetime.date(start_year, start_month, start_day)
-    end_date = datetime.date(end_year, end_month, end_day+1)
+    end_date = datetime.date(end_year, end_month, end_day)
 
-    print '******', start_date, '******', end_date
-    data = [obj.as_json() for obj in FakeData.objects.filter(timestamp__range=(start_date, end_date))]
+    data = [obj.as_json() for obj in FakeData.objects.filter(date__range=(start_date, end_date)).order_by('timestamp')]
 
     return HttpResponse(json.dumps(data), content_type="application/json")

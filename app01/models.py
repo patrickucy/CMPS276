@@ -10,6 +10,7 @@ class FakeData(models.Model):
     last_name = models.CharField(max_length=10)
     first_name = models.CharField(max_length=10)
     age = models.IntegerField()
+    date = models.DateField()
     timestamp = models.DateTimeField()
 
     def as_json(self):
@@ -20,5 +21,6 @@ class FakeData(models.Model):
             'last_name': self.last_name,
             'first_name': self.first_name,
             'age': self.age,
+            'date': str(self.date),
             'timestamp': str(self.timestamp)
         }

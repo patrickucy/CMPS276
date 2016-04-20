@@ -2,8 +2,87 @@
 <project version="4">
   <component name="ChangeListManager">
     <list default="true" id="5565e7b8-d1e3-4957-87ca-c5b6788fecea" name="Default" comment="">
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/templates/data_visual.html" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/static/bootstrap_datepicker/css/bootstrap-datepicker.css" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/static/bootstrap_datepicker/css/bootstrap-datepicker.min.css" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/static/bootstrap_datepicker/css/bootstrap-datepicker.standalone.css" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/static/bootstrap_datepicker/css/bootstrap-datepicker.standalone.min.css" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/static/bootstrap_datepicker/css/bootstrap-datepicker3.css" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/static/bootstrap_datepicker/css/bootstrap-datepicker3.min.css" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/static/bootstrap_datepicker/css/bootstrap-datepicker3.standalone.css" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/static/bootstrap_datepicker/css/bootstrap-datepicker3.standalone.min.css" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/static/bootstrap_datepicker/js/bootstrap-datepicker.js" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/static/bootstrap_datepicker/js/bootstrap-datepicker.min.js" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/static/bootstrap_datepicker/locales/bootstrap-datepicker.ar.min.js" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/static/bootstrap_datepicker/locales/bootstrap-datepicker.az.min.js" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/static/bootstrap_datepicker/locales/bootstrap-datepicker.bg.min.js" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/static/bootstrap_datepicker/locales/bootstrap-datepicker.bs.min.js" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/static/bootstrap_datepicker/locales/bootstrap-datepicker.ca.min.js" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/static/bootstrap_datepicker/locales/bootstrap-datepicker.cs.min.js" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/static/bootstrap_datepicker/locales/bootstrap-datepicker.cy.min.js" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/static/bootstrap_datepicker/locales/bootstrap-datepicker.da.min.js" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/static/bootstrap_datepicker/locales/bootstrap-datepicker.de.min.js" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/static/bootstrap_datepicker/locales/bootstrap-datepicker.el.min.js" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/static/bootstrap_datepicker/locales/bootstrap-datepicker.en-GB.min.js" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/static/bootstrap_datepicker/locales/bootstrap-datepicker.eo.min.js" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/static/bootstrap_datepicker/locales/bootstrap-datepicker.es.min.js" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/static/bootstrap_datepicker/locales/bootstrap-datepicker.et.min.js" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/static/bootstrap_datepicker/locales/bootstrap-datepicker.eu.min.js" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/static/bootstrap_datepicker/locales/bootstrap-datepicker.fa.min.js" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/static/bootstrap_datepicker/locales/bootstrap-datepicker.fi.min.js" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/static/bootstrap_datepicker/locales/bootstrap-datepicker.fo.min.js" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/static/bootstrap_datepicker/locales/bootstrap-datepicker.fr-CH.min.js" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/static/bootstrap_datepicker/locales/bootstrap-datepicker.fr.min.js" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/static/bootstrap_datepicker/locales/bootstrap-datepicker.gl.min.js" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/static/bootstrap_datepicker/locales/bootstrap-datepicker.he.min.js" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/static/bootstrap_datepicker/locales/bootstrap-datepicker.hr.min.js" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/static/bootstrap_datepicker/locales/bootstrap-datepicker.hu.min.js" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/static/bootstrap_datepicker/locales/bootstrap-datepicker.hy.min.js" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/static/bootstrap_datepicker/locales/bootstrap-datepicker.id.min.js" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/static/bootstrap_datepicker/locales/bootstrap-datepicker.is.min.js" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/static/bootstrap_datepicker/locales/bootstrap-datepicker.it-CH.min.js" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/static/bootstrap_datepicker/locales/bootstrap-datepicker.it.min.js" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/static/bootstrap_datepicker/locales/bootstrap-datepicker.ja.min.js" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/static/bootstrap_datepicker/locales/bootstrap-datepicker.ka.min.js" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/static/bootstrap_datepicker/locales/bootstrap-datepicker.kh.min.js" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/static/bootstrap_datepicker/locales/bootstrap-datepicker.kk.min.js" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/static/bootstrap_datepicker/locales/bootstrap-datepicker.ko.min.js" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/static/bootstrap_datepicker/locales/bootstrap-datepicker.kr.min.js" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/static/bootstrap_datepicker/locales/bootstrap-datepicker.lt.min.js" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/static/bootstrap_datepicker/locales/bootstrap-datepicker.lv.min.js" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/static/bootstrap_datepicker/locales/bootstrap-datepicker.me.min.js" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/static/bootstrap_datepicker/locales/bootstrap-datepicker.mk.min.js" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/static/bootstrap_datepicker/locales/bootstrap-datepicker.mn.min.js" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/static/bootstrap_datepicker/locales/bootstrap-datepicker.ms.min.js" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/static/bootstrap_datepicker/locales/bootstrap-datepicker.nb.min.js" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/static/bootstrap_datepicker/locales/bootstrap-datepicker.nl-BE.min.js" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/static/bootstrap_datepicker/locales/bootstrap-datepicker.nl.min.js" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/static/bootstrap_datepicker/locales/bootstrap-datepicker.no.min.js" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/static/bootstrap_datepicker/locales/bootstrap-datepicker.pl.min.js" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/static/bootstrap_datepicker/locales/bootstrap-datepicker.pt-BR.min.js" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/static/bootstrap_datepicker/locales/bootstrap-datepicker.pt.min.js" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/static/bootstrap_datepicker/locales/bootstrap-datepicker.ro.min.js" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/static/bootstrap_datepicker/locales/bootstrap-datepicker.rs-latin.min.js" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/static/bootstrap_datepicker/locales/bootstrap-datepicker.rs.min.js" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/static/bootstrap_datepicker/locales/bootstrap-datepicker.ru.min.js" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/static/bootstrap_datepicker/locales/bootstrap-datepicker.sk.min.js" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/static/bootstrap_datepicker/locales/bootstrap-datepicker.sl.min.js" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/static/bootstrap_datepicker/locales/bootstrap-datepicker.sq.min.js" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/static/bootstrap_datepicker/locales/bootstrap-datepicker.sr-latin.min.js" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/static/bootstrap_datepicker/locales/bootstrap-datepicker.sr.min.js" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/static/bootstrap_datepicker/locales/bootstrap-datepicker.sv.min.js" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/static/bootstrap_datepicker/locales/bootstrap-datepicker.sw.min.js" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/static/bootstrap_datepicker/locales/bootstrap-datepicker.th.min.js" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/static/bootstrap_datepicker/locales/bootstrap-datepicker.tr.min.js" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/static/bootstrap_datepicker/locales/bootstrap-datepicker.uk.min.js" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/static/bootstrap_datepicker/locales/bootstrap-datepicker.vi.min.js" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/static/bootstrap_datepicker/locales/bootstrap-datepicker.zh-CN.min.js" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/static/bootstrap_datepicker/locales/bootstrap-datepicker.zh-TW.min.js" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/templates/data_visualization_panel.html" afterPath="" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/db.sqlite3" afterPath="$PROJECT_DIR$/db.sqlite3" />
       <change type="MODIFICATION" beforePath="$USER_HOME$/Desktop/slugiot-server/applications/server/views/default/visual_demo.html" afterPath="$USER_HOME$/Desktop/slugiot-server/applications/server/views/default/visual_demo.html" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/.idea/workspace.xml" afterPath="$PROJECT_DIR$/.idea/workspace.xml" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/CMPS276/urls.py" afterPath="$PROJECT_DIR$/CMPS276/urls.py" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/app01/admin.py" afterPath="$PROJECT_DIR$/app01/admin.py" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/app01/models.py" afterPath="$PROJECT_DIR$/app01/models.py" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/app01/views.py" afterPath="$PROJECT_DIR$/app01/views.py" />
@@ -38,8 +117,20 @@
       <file leaf-file-name="index.html" pinned="false" current-in-tab="true">
         <entry file="file://$PROJECT_DIR$/templates/index.html">
           <provider selected="true" editor-type-id="text-editor">
-            <state vertical-scroll-proportion="0.4279661">
-              <caret line="125" column="0" selection-start-line="125" selection-start-column="0" selection-end-line="125" selection-end-column="0" />
+            <state vertical-scroll-proportion="0.3258427">
+              <caret line="165" column="15" selection-start-line="165" selection-start-column="15" selection-end-line="165" selection-end-column="15" />
+              <folding>
+                <element signature="n#style#0;n#div#0;n#div#1;n#div#0;n#div#1;n#div#0;n#div#0;n#body#0;n#html#0;n#!!top" expanded="true" />
+              </folding>
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file leaf-file-name="urls.py" pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/CMPS276/urls.py">
+          <provider selected="true" editor-type-id="text-editor">
+            <state vertical-scroll-proportion="0.0">
+              <caret line="27" column="0" selection-start-line="27" selection-start-column="0" selection-end-line="27" selection-end-column="0" />
               <folding />
             </state>
           </provider>
@@ -49,10 +140,40 @@
         <entry file="file://$PROJECT_DIR$/app01/views.py">
           <provider selected="true" editor-type-id="text-editor">
             <state vertical-scroll-proportion="0.0">
-              <caret line="63" column="59" selection-start-line="63" selection-start-column="59" selection-end-line="63" selection-end-column="59" />
+              <caret line="17" column="6" selection-start-line="17" selection-start-column="6" selection-end-line="17" selection-end-column="6" />
               <folding>
                 <element signature="e#0#30#0" expanded="true" />
               </folding>
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file leaf-file-name="tests.py" pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/app01/tests.py">
+          <provider selected="true" editor-type-id="text-editor">
+            <state vertical-scroll-proportion="0.0">
+              <caret line="0" column="0" selection-start-line="0" selection-start-column="0" selection-end-line="0" selection-end-column="0" />
+              <folding />
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file leaf-file-name="models.py" pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/app01/models.py">
+          <provider selected="true" editor-type-id="text-editor">
+            <state vertical-scroll-proportion="0.0">
+              <caret line="23" column="15" selection-start-line="23" selection-start-column="0" selection-end-line="24" selection-end-column="0" />
+              <folding />
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file leaf-file-name="apps.py" pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/app01/apps.py">
+          <provider selected="true" editor-type-id="text-editor">
+            <state vertical-scroll-proportion="0.0">
+              <caret line="0" column="0" selection-start-line="0" selection-start-column="0" selection-end-line="0" selection-end-column="0" />
+              <folding />
             </state>
           </provider>
         </entry>
@@ -79,15 +200,16 @@
         <option value="$PROJECT_DIR$/CMPS276/settings.py" />
         <option value="$PROJECT_DIR$/templates/data_detail_panel.html" />
         <option value="$PROJECT_DIR$/templates/test.html" />
-        <option value="$PROJECT_DIR$/CMPS276/urls.py" />
-        <option value="$PROJECT_DIR$/templates/data_visualization_panel.html" />
         <option value="$USER_HOME$/Desktop/slugiot-server/applications/server/views/default/visual.html" />
         <option value="$USER_HOME$/Desktop/slugiot-server/applications/server/controllers/default.py" />
         <option value="$USER_HOME$/Desktop/slugiot-server/applications/server/views/default/data_visualization_panel.html" />
         <option value="$USER_HOME$/Desktop/slugiot-server/applications/server/views/default/visual_demo.html" />
-        <option value="$PROJECT_DIR$/app01/admin.py" />
+        <option value="$PROJECT_DIR$/CMPS276/urls.py" />
+        <option value="$PROJECT_DIR$/templates/data_visualization_panel.html" />
         <option value="$PROJECT_DIR$/app01/models.py" />
+        <option value="$PROJECT_DIR$/app01/admin.py" />
         <option value="$PROJECT_DIR$/app01/views.py" />
+        <option value="$PROJECT_DIR$/templates/data_visual.html" />
         <option value="$PROJECT_DIR$/templates/index.html" />
       </list>
     </option>
@@ -535,13 +657,14 @@
     <layout>
       <window_info id="Project" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" show_stripe_button="true" weight="0.17167382" sideWeight="0.5" order="0" side_tool="false" content_ui="combo" />
       <window_info id="TODO" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="6" side_tool="false" content_ui="tabs" />
-      <window_info id="Event Log" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" show_stripe_button="true" weight="0.3290653" sideWeight="0.4613734" order="7" side_tool="true" content_ui="tabs" />
+      <window_info id="Event Log" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.3290653" sideWeight="0.46423462" order="7" side_tool="true" content_ui="tabs" />
       <window_info id="Database" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="3" side_tool="false" content_ui="tabs" />
+      <window_info id="Find" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.3290653" sideWeight="0.49713877" order="1" side_tool="false" content_ui="tabs" />
       <window_info id="Python Console" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="10" side_tool="false" content_ui="tabs" />
       <window_info id="Version Control" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="8" side_tool="false" content_ui="tabs" />
       <window_info id="Run" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.3290653" sideWeight="0.49713877" order="2" side_tool="false" content_ui="tabs" />
       <window_info id="Structure" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.24964234" sideWeight="0.5" order="1" side_tool="false" content_ui="tabs" />
-      <window_info id="Terminal" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" show_stripe_button="true" weight="0.3290653" sideWeight="0.5386266" order="9" side_tool="false" content_ui="tabs" />
+      <window_info id="Terminal" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" show_stripe_button="true" weight="0.021766966" sideWeight="0.53576535" order="9" side_tool="false" content_ui="tabs" />
       <window_info id="Favorites" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="2" side_tool="true" content_ui="tabs" />
       <window_info id="Debug" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.4" sideWeight="0.5" order="3" side_tool="false" content_ui="tabs" />
       <window_info id="Cvs" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.25" sideWeight="0.5" order="4" side_tool="false" content_ui="tabs" />
@@ -549,7 +672,6 @@
       <window_info id="Commander" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.4" sideWeight="0.5" order="0" side_tool="false" content_ui="tabs" />
       <window_info id="Inspection" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.4" sideWeight="0.5" order="5" side_tool="false" content_ui="tabs" />
       <window_info id="Hierarchy" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.25" sideWeight="0.5" order="2" side_tool="false" content_ui="combo" />
-      <window_info id="Find" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="1" side_tool="false" content_ui="tabs" />
       <window_info id="Ant Build" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.25" sideWeight="0.5" order="1" side_tool="false" content_ui="tabs" />
     </layout>
   </component>
@@ -573,7 +695,9 @@
       <provider selected="true" editor-type-id="text-editor">
         <state vertical-scroll-proportion="0.0">
           <caret line="42" column="0" selection-start-line="42" selection-start-column="0" selection-end-line="42" selection-end-column="0" />
-          <folding />
+          <folding>
+            <element signature="n#style#0;n#div#0;n#div#1;n#div#0;n#div#1;n#div#0;n#div#0;n#body#0;n#html#0;n#!!top" expanded="true" />
+          </folding>
         </state>
       </provider>
     </entry>
@@ -581,7 +705,9 @@
       <provider selected="true" editor-type-id="text-editor">
         <state vertical-scroll-proportion="0.0">
           <caret line="42" column="0" selection-start-line="42" selection-start-column="0" selection-end-line="42" selection-end-column="0" />
-          <folding />
+          <folding>
+            <element signature="n#style#0;n#div#0;n#div#1;n#div#0;n#div#1;n#div#0;n#div#0;n#body#0;n#html#0;n#!!top" expanded="true" />
+          </folding>
         </state>
       </provider>
     </entry>
@@ -589,7 +715,9 @@
       <provider selected="true" editor-type-id="text-editor">
         <state vertical-scroll-proportion="0.0">
           <caret line="0" column="0" selection-start-line="0" selection-start-column="0" selection-end-line="0" selection-end-column="0" />
-          <folding />
+          <folding>
+            <element signature="n#style#0;n#div#0;n#div#1;n#div#0;n#div#1;n#div#0;n#div#0;n#body#0;n#html#0;n#!!top" expanded="true" />
+          </folding>
         </state>
       </provider>
     </entry>
@@ -652,98 +780,15 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/static/bootstrap_datepicker/js/bootstrap-datepicker.js">
-      <provider selected="true" editor-type-id="text-editor">
-        <state vertical-scroll-proportion="0.0">
-          <caret line="0" column="0" selection-start-line="0" selection-start-column="0" selection-end-line="0" selection-end-column="0" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/static/bootstrap_datepicker/css/bootstrap-datepicker3.css">
-      <provider selected="true" editor-type-id="text-editor">
-        <state vertical-scroll-proportion="0.0">
-          <caret line="0" column="0" selection-start-line="0" selection-start-column="0" selection-end-line="0" selection-end-column="0" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/static/bootstrap_datepicker/css/bootstrap-datepicker.min.css">
-      <provider selected="true" editor-type-id="text-editor">
-        <state vertical-scroll-proportion="0.0">
-          <caret line="0" column="0" selection-start-line="0" selection-start-column="0" selection-end-line="0" selection-end-column="0" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/static/bootstrap_datepicker/css/bootstrap-datepicker3.min.css">
-      <provider selected="true" editor-type-id="text-editor">
-        <state vertical-scroll-proportion="0.0">
-          <caret line="0" column="0" selection-start-line="0" selection-start-column="0" selection-end-line="0" selection-end-column="0" />
-          <folding />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/static/bootstrap_datepicker/css/bootstrap-datepicker.standalone.css">
-      <provider selected="true" editor-type-id="text-editor">
-        <state vertical-scroll-proportion="0.0">
-          <caret line="0" column="0" selection-start-line="0" selection-start-column="0" selection-end-line="0" selection-end-column="0" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/static/bootstrap_datepicker/css/bootstrap-datepicker3.standalone.css">
-      <provider selected="true" editor-type-id="text-editor">
-        <state vertical-scroll-proportion="0.0">
-          <caret line="0" column="0" selection-start-line="0" selection-start-column="0" selection-end-line="0" selection-end-column="0" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/static/bootstrap_datepicker/css/bootstrap-datepicker.standalone.min.css">
-      <provider selected="true" editor-type-id="text-editor">
-        <state vertical-scroll-proportion="0.0">
-          <caret line="0" column="0" selection-start-line="0" selection-start-column="0" selection-end-line="0" selection-end-column="0" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/static/bootstrap_datepicker/css/bootstrap-datepicker3.standalone.min.css">
-      <provider selected="true" editor-type-id="text-editor">
-        <state vertical-scroll-proportion="0.0">
-          <caret line="0" column="0" selection-start-line="0" selection-start-column="0" selection-end-line="0" selection-end-column="0" />
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/static/pic.png">
       <provider selected="true" editor-type-id="images">
         <state />
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/static/bootstrap_datepicker/js/bootstrap-datepicker.min.js">
-      <provider selected="true" editor-type-id="text-editor">
-        <state vertical-scroll-proportion="0.7036247">
-          <caret line="7" column="1903" selection-start-line="0" selection-start-column="0" selection-end-line="7" selection-end-column="31401" />
-          <folding>
-            <element signature="n#!!doc" expanded="false" />
-          </folding>
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/static/bootstrap_datepicker/css/bootstrap-datepicker.css">
-      <provider selected="true" editor-type-id="text-editor">
-        <state vertical-scroll-proportion="0.03177966">
-          <caret line="28" column="14" selection-start-line="0" selection-start-column="0" selection-end-line="472" selection-end-column="0" />
-          <folding />
-        </state>
       </provider>
     </entry>
     <entry file="file://$PROJECT_DIR$/CMPS276/settings.py">
       <provider selected="true" editor-type-id="text-editor">
         <state vertical-scroll-proportion="0.7883065">
           <caret line="119" column="1" selection-start-line="119" selection-start-column="1" selection-end-line="119" selection-end-column="1" />
-          <folding />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/CMPS276/urls.py">
-      <provider selected="true" editor-type-id="text-editor">
-        <state vertical-scroll-proportion="0.70212764">
-          <caret line="27" column="0" selection-start-line="27" selection-start-column="0" selection-end-line="27" selection-end-column="0" />
           <folding />
         </state>
       </provider>
@@ -812,14 +857,6 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/templates/data_visualization_panel.html">
-      <provider selected="true" editor-type-id="text-editor">
-        <state vertical-scroll-proportion="0.63901347">
-          <caret line="19" column="3" selection-start-line="19" selection-start-column="3" selection-end-line="19" selection-end-column="3" />
-          <folding />
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$USER_HOME$/Desktop/slugiot-server/applications/server/views/default/data_visualization_panel.html">
       <provider selected="true" editor-type-id="text-editor">
         <state vertical-scroll-proportion="0.93273544">
@@ -844,20 +881,68 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/app01/admin.py">
-      <provider selected="true" editor-type-id="text-editor">
-        <state vertical-scroll-proportion="0.0">
-          <caret line="0" column="0" selection-start-line="0" selection-start-column="0" selection-end-line="0" selection-end-column="0" />
-          <folding>
-            <element signature="e#0#32#0" expanded="true" />
-          </folding>
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$USER_HOME$/Desktop/slugiot-server/applications/server/views/default/visual_demo.html">
       <provider selected="true" editor-type-id="text-editor">
         <state vertical-scroll-proportion="0.71398306">
           <caret line="584" column="14" selection-start-line="584" selection-start-column="14" selection-end-line="584" selection-end-column="14" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file:///Library/Python/2.7/site-packages/django/db/models/manager.py">
+      <provider selected="true" editor-type-id="text-editor">
+        <state vertical-scroll-proportion="0.26865673">
+          <caret line="21" column="56" selection-start-line="21" selection-start-column="54" selection-end-line="21" selection-end-column="56" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$USER_HOME$/Library/Caches/PyCharm50/python_stubs/-2125986627/datetime.py">
+      <provider selected="true" editor-type-id="text-editor">
+        <state vertical-scroll-proportion="-6.683468">
+          <caret line="0" column="0" selection-start-line="0" selection-start-column="0" selection-end-line="0" selection-end-column="0" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/app01/admin.py">
+      <provider selected="true" editor-type-id="text-editor">
+        <state vertical-scroll-proportion="0.27217743">
+          <caret line="10" column="0" selection-start-line="10" selection-start-column="0" selection-end-line="10" selection-end-column="0" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/templates/data_visual.html">
+      <provider selected="true" editor-type-id="text-editor">
+        <state vertical-scroll-proportion="0.0">
+          <caret line="0" column="0" selection-start-line="0" selection-start-column="0" selection-end-line="0" selection-end-column="0" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/CMPS276/urls.py">
+      <provider selected="true" editor-type-id="text-editor">
+        <state vertical-scroll-proportion="0.0">
+          <caret line="27" column="0" selection-start-line="27" selection-start-column="0" selection-end-line="27" selection-end-column="0" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/app01/views.py">
+      <provider selected="true" editor-type-id="text-editor">
+        <state vertical-scroll-proportion="0.0">
+          <caret line="17" column="6" selection-start-line="17" selection-start-column="6" selection-end-line="17" selection-end-column="6" />
+          <folding>
+            <element signature="e#0#30#0" expanded="true" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/app01/tests.py">
+      <provider selected="true" editor-type-id="text-editor">
+        <state vertical-scroll-proportion="0.0">
+          <caret line="0" column="0" selection-start-line="0" selection-start-column="0" selection-end-line="0" selection-end-column="0" />
           <folding />
         </state>
       </provider>
@@ -872,35 +957,19 @@
     </entry>
     <entry file="file://$PROJECT_DIR$/app01/models.py">
       <provider selected="true" editor-type-id="text-editor">
-        <state vertical-scroll-proportion="0.48387095">
-          <caret line="18" column="38" selection-start-line="18" selection-start-column="38" selection-end-line="18" selection-end-column="38" />
-          <folding />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file:///Library/Python/2.7/site-packages/django/db/models/manager.py">
-      <provider selected="true" editor-type-id="text-editor">
-        <state vertical-scroll-proportion="0.26865673">
-          <caret line="21" column="56" selection-start-line="21" selection-start-column="54" selection-end-line="21" selection-end-column="56" />
-          <folding />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/app01/views.py">
-      <provider selected="true" editor-type-id="text-editor">
         <state vertical-scroll-proportion="0.0">
-          <caret line="63" column="59" selection-start-line="63" selection-start-column="59" selection-end-line="63" selection-end-column="59" />
-          <folding>
-            <element signature="e#0#30#0" expanded="true" />
-          </folding>
+          <caret line="23" column="15" selection-start-line="23" selection-start-column="0" selection-end-line="24" selection-end-column="0" />
+          <folding />
         </state>
       </provider>
     </entry>
     <entry file="file://$PROJECT_DIR$/templates/index.html">
       <provider selected="true" editor-type-id="text-editor">
-        <state vertical-scroll-proportion="0.4279661">
-          <caret line="125" column="0" selection-start-line="125" selection-start-column="0" selection-end-line="125" selection-end-column="0" />
-          <folding />
+        <state vertical-scroll-proportion="0.3258427">
+          <caret line="165" column="15" selection-start-line="165" selection-start-column="15" selection-end-line="165" selection-end-column="15" />
+          <folding>
+            <element signature="n#style#0;n#div#0;n#div#1;n#div#0;n#div#1;n#div#0;n#div#0;n#body#0;n#html#0;n#!!top" expanded="true" />
+          </folding>
         </state>
       </provider>
     </entry>
