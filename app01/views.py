@@ -2,6 +2,7 @@ from django.shortcuts import *
 from app01.models import *
 from django.core import serializers
 import json
+import datetime
 
 
 # Create your views here.
@@ -46,5 +47,23 @@ def getData(request):
         }
     ]
 
-    data = [obj.as_json() for obj in FakeData.objects.all()]
+    # print '-------', request.GET['timeSpan'], '--------------'
+
+    time_span = request.GET['timeSpan']
+
+    start_month = int(time_span[0:2])
+    start_day = int(time_span[3:5])
+    start_year = int(time_span[6:11])
+    end_month = int(time_span[13:15])
+    end_day = int(time_span[16:18])
+    end_year = int(time_span[19:24])
+
+    print "##################", start_month, "*", start_day, "*", start_year, ":", end_month, "*", end_day, "*", end_year
+
+    start_date = datetime.date(start_year, start_month, start_day)
+    end_date = datetime.date(end_year, end_month, end_day+1)
+
+    print '******', start_date, '******', end_date
+    data = [obj.as_json() for obj in FakeData.objects.filter(timestamp__range=(start_date, end_date))]
+
     return HttpResponse(json.dumps(data), content_type="application/json")

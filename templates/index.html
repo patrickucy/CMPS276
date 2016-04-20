@@ -4,16 +4,11 @@
     <meta charset="UTF-8">
 
 
-    <!-- Angular Material style sheet -->
-    <link rel="stylesheet"
-          href="http://ajax.googleapis.com/ajax/libs/angular_material/1.1.0-rc2/angular-material.min.css">
     <!-- Angular Material requires Angular.js Libraries -->
     <script src="http://ajax.googleapis.com/ajax/libs/angularjs/1.5.3/angular.min.js"></script>
     <script src="http://ajax.googleapis.com/ajax/libs/angularjs/1.5.3/angular-animate.min.js"></script>
     <script src="http://ajax.googleapis.com/ajax/libs/angularjs/1.5.3/angular-aria.min.js"></script>
     <script src="http://ajax.googleapis.com/ajax/libs/angularjs/1.5.3/angular-messages.min.js"></script>
-    <!-- Angular Material Library -->
-    <script src="http://ajax.googleapis.com/ajax/libs/angular_material/1.1.0-rc2/angular-material.min.js"></script>
 
 
     <!-- Bootstrap CSS & JS-->
@@ -34,7 +29,7 @@
     <script src="https://cdnjs.cloudflare.com/ajax/libs/bootstrap-select/1.10.0/js/bootstrap-select.min.js"></script>
 
 
-   <!-- Bootstrap Datepicker -->
+    <!-- Bootstrap Datepicker -->
     <script src="/static/bootstrap_datepicker/js/bootstrap-datepicker.min.js"></script>
     <link rel="stylesheet" href="/static/bootstrap_datepicker/css/bootstrap-datepicker3.min.css">
 
@@ -43,6 +38,16 @@
     <script src="https://www.amcharts.com/lib/3/amcharts.js"></script>
     <script src="https://www.amcharts.com/lib/3/serial.js"></script>
     <script src="https://www.amcharts.com/lib/3/themes/light.js"></script>
+
+
+    <!-- Date range picker -->
+    <!-- Include Required Prerequisites -->
+    <script type="text/javascript" src="//cdn.jsdelivr.net/jquery/1/jquery.min.js"></script>
+    <script type="text/javascript" src="//cdn.jsdelivr.net/momentjs/latest/moment.min.js"></script>
+    <link rel="stylesheet" type="text/css" href="//cdn.jsdelivr.net/bootstrap/latest/css/bootstrap.css"/>
+    <!-- Include Date Range Picker -->
+    <script type="text/javascript" src="//cdn.jsdelivr.net/bootstrap.daterangepicker/2/daterangepicker.js"></script>
+    <link rel="stylesheet" type="text/css" href="//cdn.jsdelivr.net/bootstrap.daterangepicker/2/daterangepicker.css"/>
 
 
     <title>CMPS276</title>
@@ -112,10 +117,9 @@
                         <tr>
                             <td>
                                 <label>Time Span:</label>
-                                <div class="input-group input-daterange">
-                                    <input type="text" class="form-control" value="2012-04-05">
-                                    <span class="input-group-addon">to</span>
-                                    <input type="text" class="form-control" value="2012-04-19">
+                                <div>
+                                    <input id="timeSpan" type="text" class="form-control" name="timeSpan"
+                                           value="04/17/2016 - 04/18/2016"/>
                                 </div>
                             </td>
                         </tr>
@@ -134,8 +138,8 @@
 
                 <!-- DATA VISUALIZATION amChart -->
                 <div class="col-sm-9">
-{#                    <div id="chartdiv"></div>#}
-                    {%  include 'data_visualization_panel.html' %}
+                    {#                    <div id="chartdiv"></div>#}
+                    {% include 'data_visualization_panel.html' %}
                 </div>
             </div>
         </div>
@@ -148,12 +152,23 @@
             <h3 class="panel-title">Data Detail Panel</h3>
         </div>
         <div class="panel-body">
-            <form class="navbar-form navbar-left" role="search">
-                <div class="form-group">
-                    <input type="text" class="form-control" placeholder="search for...">
-                </div>
-                <button type="submit" class="btn btn-default">Search</button>
-            </form>
+
+            <ul class="nav nav-tabs">
+                <li role="presentation" class="active"><a href="#">Message</a></li>
+                <li role="presentation"><a href="#">Output</a></li>
+                <li role="presentation"><a href="#">Logs</a></li>
+                <form class="navbar-form navbar-right" role="search">
+                    <div class="input-group">
+                        <input type="text" class="form-control" placeholder="Search for...">
+                          <span class="input-group-btn">
+                            <button class="btn btn-default" type="button">Search</button>
+                          </span>
+                    </div>
+                </form>
+
+
+            </ul>
+
             <table class="table table-hover">
                 <thead>
 
@@ -164,6 +179,7 @@
                     <th>Last Name</th>
                     <th>First Name</th>
                     <th>Age</th>
+                    <th>Time Stamp</th>
 
                 </tr>
                 </thead>
@@ -176,6 +192,8 @@
                     <td>faletom</td>
                     <td>fakejack</td>
                     <td>fake23</td>
+                    <td>fake23</td>
+
                 </tr>
                 <tr>
                     <th scope="row">2</th>
@@ -184,6 +202,8 @@
                     <td>faletom</td>
                     <td>fakejack</td>
                     <td>fake23</td>
+                    <td>fake23</td>
+
                 </tr>
                 <tr>
                     <th scope="row">3</th>
@@ -192,6 +212,8 @@
                     <td>faletom</td>
                     <td>fakejack</td>
                     <td>fake23</td>
+                    <td>fake23</td>
+
                 </tr>
                 </tbody>
             </table>
@@ -243,17 +265,21 @@
 
     // ------------  Refresh Button  ------------
     function refresh() {
+        {#        alert("you clicked refresh");#}
+
+        var timeSpan = $('#timeSpan').val();
+
         $.ajax({
             'url': '/getData',
             'type': 'get',
             'dataType': 'json',
+            'data': {'timeSpan': timeSpan },
             'success': function (data) {
                 // data is from the server side
-
                 $('#dataTableBody').empty();
                 for (var i = 0; i < data.length; i++) {
                     var s = data[i];
-                    $('#dataTableBody').append('<tr> <th scope="row">' + (i + 1) + '</th> <td>' + s.username + '</td> <td>' + s.password + '</td> <td>' + s.last_name + '</td> <td>' + s.first_name + '</td> <td>' + s.age + '</td> </tr>');
+                    $('#dataTableBody').append('<tr> <th scope="row">' + (i + 1) + '</th> <td>' + s.username + '</td> <td>' + s.password + '</td> <td>' + s.last_name + '</td> <td>' + s.first_name + '</td> <td>' + s.age + '</td> <td>' + s.timestamp + '</td></tr>');
                 }
             },
             'error': function () {
@@ -265,21 +291,13 @@
         });
     }
 
-    // date picker
-    $('.input-daterange input').each(function () {
-        $(this).datepicker("clearDates");
+    // ------------  Date Picker  ------------
+    $(function () {
+        $('input[name="timeSpan"]').daterangepicker();
     });
 
 
-
 </script>
-<!-- amChart CSS -->
-<style>
-    #chartdiv {
-        width: 100%;
-        height: 500px;
-    }
-</style>
 </body>
 
 </html>
