@@ -91,7 +91,8 @@
                         <tr>
                             <td>
                                 <label>Select:</label> <br>
-                                <select class="selectpicker" data-live-search="true" title="Choose Device...">
+                                <select id="select_device" class="selectpicker" data-live-search="true"
+                                        title="Choose Device...">
                                     <option>Android</option>
                                     <option>iPhone</option>
                                     <option>iPad</option>
@@ -99,10 +100,10 @@
 
                                 </select>
                                 <br>
-                                <select class="selectpicker" data-live-search="true" title="Choose Data Module...">
-                                    <option>Temperature</option>
-                                    <option>Pressure</option>
-                                    <option>Humidity</option>
+                                <select id="select_data_module" class="selectpicker" data-live-search="true"
+                                        title="Choose Data Module...">
+                                    <option value="temperature">temperature</option>
+                                    <option value="pressure">pressure</option>
                                 </select>
 
                             </td>
@@ -194,17 +195,15 @@
 
                             <tr>
                                 <th>#</th>
-                                <th>Username</th>
-                                <th>Password</th>
-                                <th>Last Name</th>
-                                <th>First Name</th>
-                                <th>Age</th>
-                                <th>Time Stamp</th>
-                                <th>Date</th>
+                                <th>Module Name</th>
+                                <th>Output Value</th>
+                                <th>Tag</th>
+                                <th>Timestamp</th>
+
 
                             </tr>
                             </thead>
-                            <tbody id="mixedTableBody">
+                            <tbody id="mixed_table_body">
 
                             <tr>
                                 <th scope="row">1</th>
@@ -212,9 +211,7 @@
                                 <td>fake123</td>
                                 <td>faletom</td>
                                 <td>fakejack</td>
-                                <td>fake23</td>
-                                <td>fake23</td>
-                                <td>fakedate</td>
+
 
                             </tr>
                             <tr>
@@ -223,9 +220,7 @@
                                 <td>fake123</td>
                                 <td>faletom</td>
                                 <td>fakejack</td>
-                                <td>fake23</td>
-                                <td>fake23</td>
-                                <td>fakedate</td>
+
 
 
                             </tr>
@@ -235,9 +230,7 @@
                                 <td>fake123</td>
                                 <td>faletom</td>
                                 <td>fakejack</td>
-                                <td>fake23</td>
-                                <td>fake23</td>
-                                <td>fakedate</td>
+
 
 
                             </tr>
@@ -266,7 +259,7 @@
                                 <th>Time</th>
                             </tr>
                             </thead>
-                            <tbody id="outputTableBody">
+                            <tbody id="output_table_body">
 
 
                             </tbody>
@@ -286,7 +279,7 @@
                         </form>
                         <br><br><br>
 
-                        <div class="panel-group" id="logAccordion" role="tablist" aria-multiselectable="true">
+                        <div class="panel-group" id="log_accordion" role="tablist" aria-multiselectable="true">
 
                             <div class="panel panel-default">
                                 <div class="panel-heading" role="tab" id="headingOne">
@@ -420,6 +413,9 @@
     var firstDate = new Date();
     firstDate.setDate(firstDate.getDate() - 500);
 
+    var graph0; // testing temperature
+    var graph1;
+    var graph2;
 
     // create chart
     AmCharts.ready(function () {
@@ -440,7 +436,7 @@
             backgroundAlpha: 0.15
         };
         chart.dataProvider = chartData;
-        chart.categoryField = "timestamp";
+        chart.categoryField = "time_stamp";
 
 
         chart.startDuration = 2;
@@ -459,39 +455,56 @@
         //categoryAxis.gridAlpha = 0.15;
         //categoryAxis.axisColor = "#DADADA";
 
+
+        var valueAxis0 = new AmCharts.ValueAxis();
+        valueAxis0.id = "v0";
+        valueAxis0.title = "Temperature";
+        valueAxis0.position = "left";
+        {#        valueAxis1.axisAlpha = 0.2;#}
+        {#        valueAxis1.dashLength = 1;#}
+        valueAxis0.autoGridCount = "false";
+        valueAxis0.labelFunction = function (value) {
+            return "" + Math.round(value) + "c"
+        }
+
+
         // valueAxe
         // valueAxis1
+
         var valueAxis1 = new AmCharts.ValueAxis();
         valueAxis1.id = "v1";
-        valueAxis1.title = "Sales";
+        valueAxis1.title = "Temperature";
         valueAxis1.position = "left";
         {#        valueAxis1.axisAlpha = 0.2;#}
         {#        valueAxis1.dashLength = 1;#}
         valueAxis1.autoGridCount = "false";
         valueAxis1.labelFunction = function (value) {
-            return "$" + Math.round(value) + "M"
+            return "" + Math.round(value) + "c"
         }
         //chart.addValueAxis(valueAxis1);
         // valueAxis1
         var valueAxis2 = new AmCharts.ValueAxis();
         valueAxis2.id = "v2";
-        valueAxis2.title = "Market Days";
-        valueAxis2.position = "right";
+        valueAxis2.title = "Humidity";
+        valueAxis2.position = "left";
         {#        valueAxis1.axisAlpha = 0.2;#}
         {#        valueAxis1.dashLength = 1;#}
         valueAxis2.gridAlpha = 0;
         valueAxis2.autoGridCount = "false";
         //chart.addValueAxis(valueAxis2);
+        valueAxis2.labelFunction = function (value) {
+            return "" + Math.round(value) + "%"
+        }
         chart.valueAxes = [valueAxis1, valueAxis2];
 
         // legent
         {#        var legend = chart.legend();#}
         {#        legend.useGraphSettings = true;#}
         {#        legend.position = "top";#}
-        var legend = new AmCharts.AmLegend();
-        legend.useGraphSettings = true;
-        legend.position = "top";
-        chart.addLegend(legend);
+        {#        var legend = new AmCharts.AmLegend();#}
+        {#        legend.useGraphSettings = true;#}
+        {#        legend.position = "top";#}
+        {#        chart.addLegend(legend);#}
 
         chart.enabled = true;
 
@@ -510,20 +523,55 @@
         {#        graph.hideBulletsCount = 50; // this makes the chart to hide bullets when there are more than 50 series in selection#}
         {#        chart.addGraph(graph);#}
 
-        var graph1 = new AmCharts.AmGraph();
+        // testing temperature
+        graph0 = new AmCharts.AmGraph();
+        graph0.id = "g0";
+        graph0.valueAxis = "v0";
+        graph0.lineColor = "#62CF73";
+        graph0.fileColor = "#62CF73";
+        graph0.fillAlphas = 1;
+        graph0.type = "column";
+        graph0.title = "temperature";
+        graph0.valueField = "output_value";
+        graph0.cluestered = false;
+        graph0.columnWidth = 0.3;
+        graph0.legendValueText = "[[value]] celsius";
+        graph0.balloonText = "[[title]]<br/><b style='font-size: 130%'>[[value]] celsius</b>";
+        chart.addGraph(graph0);
+        chart.hideGraph(graph0);
+
+
+        graph1 = new AmCharts.AmGraph();
         graph1.id = "g1";
         graph1.valueAxis = "v1";
         graph1.lineColor = "#62CF73";
         graph1.fileColor = "#62CF73";
         graph1.fillAlphas = 1;
         graph1.type = "column";
-        graph1.title = "Ages";
-        graph1.valueField = "age";
+        graph1.title = "temperature";
+        graph1.valueField = "data_value";
         graph1.cluestered = false;
         graph1.columnWidth = 0.3;
-        graph1.legendValueText = "[[value]] years old";
-        graph1.balloonText = "[[title]]<br/><b style='font-size: 130%'>[[value]] years old</b>";
+        graph1.legendValueText = "[[value]] celsius";
+        graph1.balloonText = "[[title]]<br/><b style='font-size: 130%'>[[value]] celsius</b>";
         chart.addGraph(graph1);
+        chart.hideGraph(graph1);
+
+        graph2 = new AmCharts.AmGraph();
+        graph2.id = "g2";
+        graph2.valueAxis = "v2";
+        graph2.lineColor = "#62C666";
+        graph2.fileColor = "#62C666";
+        graph2.fillAlphas = 1;
+        graph2.type = "column";
+        graph2.title = "humidity";
+        graph2.valueField = "data_value";
+        graph2.cluestered = false;
+        graph2.columnWidth = 0.3;
+        graph2.legendValueText = "[[value]] %";
+        graph2.balloonText = "[[title]]<br/><b style='font-size: 130%'>[[value]] %</b>";
+        chart.addGraph(graph2);
+        chart.hideGraph(graph2);
 
         // CURSOR
         var chartCursor = new AmCharts.ChartCursor();
@@ -539,7 +587,7 @@
 
         // SCROLLBAR
         var chartScrollbar = new AmCharts.ChartScrollbar();
-        chartScrollbar.graph = "g1";
+        chartScrollbar.graph = "g0";
         chartScrollbar.oppositeAxis = false;
         chartScrollbar.offset = 30;
         chartScrollbar.scrollbarHeight = 50;
@@ -576,44 +624,66 @@
             'data': {'timeSpan': timeSpan},
             'success': function (data) {
 
-                // data is from the server side
 
 
 
-                console.log(data.output);
 
 
-                // showing Output tab table
-                $('#mixedTableBody').empty();
-                for(var i=0; i < data.output.length; i++){
+                // ---------- showing Output tab table ----------
+                $('#output_table_body').empty();
+                for (var i = 0; i < data.output.length; i++) {
                     var o = data.output[i];
-                    alert(o);
-                    $('#outputTableBody').append('<tr> <th scope="row">' + (i + 1) + '</th> <td>' + o.module_name + '</td> <td>' + o.output_value + '</td> <td>' + o.tag + '</td> <td>' + o.time_stamp + '</td></tr>');
+                    $('#output_table_body').append('<tr> <th scope="row">' + (i + 1) + '</th> <td>' + o.module_name + '</td> <td>' + o.output_value + '</td> <td>' + o.tag + '</td> <td>' + o.time_stamp + '</td></tr>');
                 }
 
 
-                // showing Log tab table
-                $('#logAccordion').empty();
-
+                // ---------- showing Log tab table ----------
+                $('#log_accordion').empty();
                 for (var i = 0; i < data.log.length; i++) {
                     var l = data.log[i];
-                    var content = '<div class="panel panel-default">'+
-                                '<div class="panel-heading" role="tab" >'+
-                                    '<h4 class="panel-title">'+
-                                        '<a role="button" data-toggle="collapse" data-parent="#accordion" href="#collapse'+i+'" aria-expanded="true" aria-controls="collapse'+i+'">'+
-                                            l.module_name + l.time_stamp+
-                                        '</a>'+
-                                    '</h4>'+
-                                '</div>'+
-                                '<div id="collapse'+i+'" class="panel-collapse collapse in" role="tabpanel" aria-labelledby="headingOne">'+
-                                    '<div class="panel-body">'+
-                                        l.log_message
-                                    '</div>'+
-                                '</div>'+
-                            '</div>';
-                    $('#logAccordion').append(content);
+                    var content = '<div class="panel panel-default">' +
+                            '<div class="panel-heading" role="tab" >' +
+                            '<h4 class="panel-title">' +
+                            '<a class="collapsed" role="button" data-toggle="collapse" data-parent="#accordion" href="#collapse' + i + '" aria-expanded="false" aria-controls="collapse' + i + '">' +
+                            l.module_name + ' : ' + l.time_stamp +
+                            '</a>' +
+                            '</h4>' +
+                            '</div>' +
+                            '<div id="collapse' + i + '" class="panel-collapse collapse" role="tabpanel" aria-labelledby="headingOne">' +
+                            '<div class="panel-body">' +
+                            l.log_message
+                    '</div>' +
+                    '</div>' +
+                    '</div>';
+                    $('#log_accordion').append(content);
 
                 }
+
+
+                //  ---------- showing mixed as temperature only ----------
+                $('#mixed_table_body').empty();
+                for (var i = 0; i < data.temperature.length; i++) {
+                    var t = data.temperature[i];
+                    $('#mixed_table_body').append('<tr> <th scope="row">' + (i + 1) + '</th> <td>' + t.module_name + '</td> <td>' + t.output_value + '</td> <td>' + t.tag + '</td> <td>' + t.time_stamp + '</td></tr>');
+                }
+
+
+                //  ---------- showing amCharts ----------
+                chart.animateAgain();
+                chart.dataProvider = data.temperature;
+                chart.validateData();
+                chart.showGraph(graph0);
+
+                // modify the chart based on the form request:
+                {#                if (data_name_option == 'temperature') {#}
+                {#                    chart.showGraph(graph1);#}
+                {#                    chart.hideGraph(graph2);#}
+                {#                } else if (data_name_option == 'humidity') {#}
+                {#                    chart.showGraph(graph2);#}
+                {#                    chart.hideGraph(graph1);#}
+                {#                }#}
+
+
             },
             'error': function () {
                 $('#mixedTableBody').empty();

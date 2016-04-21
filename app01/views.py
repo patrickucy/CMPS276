@@ -10,6 +10,10 @@ def index(request):
     return render_to_response('index.html')
 
 
+def data_visual(request):
+    return render_to_response('data_visual_demo.html')
+
+
 def test(request):
     return render_to_response('test.html')
 
@@ -62,12 +66,16 @@ def get_data(request):
     data_output = [obj.as_json() for obj in
                    FakeOutput.objects.filter(time_stamp__range=(start_date, end_date)).order_by('time_stamp')]
 
-    log_output = [obj.as_json() for obj in FakeLog.objects.filter(time_stamp__range=(start_date, end_date)).order_by('time_stamp')]
+    log_output = [obj.as_json() for obj in
+                  FakeLog.objects.filter(time_stamp__range=(start_date, end_date)).order_by('time_stamp')]
 
-
+    temp_output = [obj.as_json() for obj in FakeOutput.objects.filter(time_stamp__range=(start_date, end_date),
+                                                                      module_name__exact='temperature').order_by(
+        'time_stamp')]
     data = {
         'output': data_output,
-        'log': log_output
+        'log': log_output,
+        'temperature': temp_output
     }
-    print '*****', data, '******'
+    print '*****', data['temperature'], '******'
     return HttpResponse(json.dumps(data), content_type="application/json")
