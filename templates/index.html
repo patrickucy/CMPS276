@@ -130,7 +130,7 @@
                                 <label>Time Span:</label>
                                 <div>
                                     <input id="timeSpan" type="text" class="form-control" name="timeSpan"
-                                           value="04/17/2016 - 04/18/2016"/>
+                                           value="04/01/2016 - 04/10/2016"/>
                                 </div>
                             </td>
                         </tr>
@@ -163,80 +163,207 @@
         </div>
         <div class="panel-body">
             <!-- Tab -->
-            <ul class="nav nav-tabs">
-                <li role="presentation" class="active"><a href="#">Message</a></li>
-                <li role="presentation"><a href="#">Output</a></li>
-                <li role="presentation"><a href="#">Logs</a></li>
-                <form class="navbar-form navbar-right" role="search">
-                    <div class="input-group">
-                        <input type="text" class="form-control" placeholder="Search for...">
+            <div>
+
+                <!-- ------- Data Detail  Nav tabs  ------- -->
+                <ul class="nav nav-tabs" role="tablist">
+                    <li role="presentation" class="active"><a href="#Mixed" aria-controls="Mixed" role="tab"
+                                                              data-toggle="tab">Mixed</a>
+                    </li>
+                    <li role="presentation"><a href="#Output" aria-controls="Output" role="tab"
+                                               data-toggle="tab">Output</a>
+                    </li>
+                    <li role="presentation"><a href="#Log" aria-controls="Log" role="tab"
+                                               data-toggle="tab">Log</a></li>
+                </ul>
+
+                <!-- ------------------ Tab panes ------------------ -->
+                <div class="tab-content">
+                    <!-- ------------------ Mixed Tab ------------------ -->
+                    <div role="tabpanel" class="tab-pane active" id="Mixed">
+                        <form class="navbar-form navbar-right" role="search">
+                            <div class="input-group">
+                                <input type="text" class="form-control" placeholder="Search for...">
                           <span class="input-group-btn">
                             <button class="btn btn-default" type="button">Search</button>
                           </span>
+                            </div>
+                        </form>
+                        <table class="table table-hover">
+                            <thead>
+
+                            <tr>
+                                <th>#</th>
+                                <th>Username</th>
+                                <th>Password</th>
+                                <th>Last Name</th>
+                                <th>First Name</th>
+                                <th>Age</th>
+                                <th>Time Stamp</th>
+                                <th>Date</th>
+
+                            </tr>
+                            </thead>
+                            <tbody id="mixedTableBody">
+
+                            <tr>
+                                <th scope="row">1</th>
+                                <td>@fake</td>
+                                <td>fake123</td>
+                                <td>faletom</td>
+                                <td>fakejack</td>
+                                <td>fake23</td>
+                                <td>fake23</td>
+                                <td>fakedate</td>
+
+                            </tr>
+                            <tr>
+                                <th scope="row">2</th>
+                                <td>@fake</td>
+                                <td>fake123</td>
+                                <td>faletom</td>
+                                <td>fakejack</td>
+                                <td>fake23</td>
+                                <td>fake23</td>
+                                <td>fakedate</td>
+
+
+                            </tr>
+                            <tr>
+                                <th scope="row">3</th>
+                                <td>@fake</td>
+                                <td>fake123</td>
+                                <td>faletom</td>
+                                <td>fakejack</td>
+                                <td>fake23</td>
+                                <td>fake23</td>
+                                <td>fakedate</td>
+
+
+                            </tr>
+                            </tbody>
+                        </table>
                     </div>
-                </form>
+
+                    <!-- ------------------ Output Tab ------------------ -->
+                    <div role="tabpanel" class="tab-pane" id="Output">
+                        <form class="navbar-form navbar-right" role="search">
+                            <div class="input-group">
+                                <input type="text" class="form-control" placeholder="Search for...">
+                          <span class="input-group-btn">
+                            <button class="btn btn-default" type="button">Search</button>
+                          </span>
+                            </div>
+                        </form>
+                        <table class="table table-hover">
+                            <thead>
+
+                            <tr>
+                                <th>#</th>
+                                <th>Name</th>
+                                <th>Value</th>
+                                <th>Tag</th>
+                                <th>Time</th>
+                            </tr>
+                            </thead>
+                            <tbody id="outputTableBody">
 
 
-            </ul>
+                            </tbody>
+                        </table>
+                    </div>
 
-            <table class="table table-hover">
-                <thead>
+                    <!-- ------------------ Log Tab ------------------ -->
+                    <div role="tabpanel" class="tab-pane" id="Log">
 
-                <tr>
-                    <th>#</th>
-                    <th>Username</th>
-                    <th>Password</th>
-                    <th>Last Name</th>
-                    <th>First Name</th>
-                    <th>Age</th>
-                    <th>Time Stamp</th>
-                    <th>Date</th>
+                        <form class="navbar-form navbar-right" role="search">
+                            <div class="input-group">
+                                <input type="text" class="form-control" placeholder="Search for...">
+                          <span class="input-group-btn">
+                            <button class="btn btn-default" type="button">Search</button>
+                          </span>
+                            </div>
+                        </form>
+                        <br><br><br>
 
-                </tr>
-                </thead>
-                <tbody id="dataTableBody">
+                        <div class="panel-group" id="logAccordion" role="tablist" aria-multiselectable="true">
 
-                <tr>
-                    <th scope="row">1</th>
-                    <td>@fake</td>
-                    <td>fake123</td>
-                    <td>faletom</td>
-                    <td>fakejack</td>
-                    <td>fake23</td>
-                    <td>fake23</td>
-                    <td>fakedate</td>
+                            <div class="panel panel-default">
+                                <div class="panel-heading" role="tab" id="headingOne">
+                                    <h4 class="panel-title">
+                                        <a role="button" data-toggle="collapse" data-parent="#accordion"
+                                           href="#collapseOne"
+                                           aria-expanded="true" aria-controls="collapseOne">
+                                            Collapsible Group Item #1
+                                        </a>
+                                    </h4>
+                                </div>
+                                <div id="collapseOne" class="panel-collapse collapse in" role="tabpanel"
+                                     aria-labelledby="headingOne">
+                                    <div class="panel-body">
+                                        Anim pariatur cliche reprehenderit, enim eiusmod high life accusamus terry
+                                        richardson ad squid. 3
+                                        wolf moon officia aute, non cupidatat skateboard dolor brunch. Food truck
+                                        quinoa
+                                    </div>
+                                </div>
+                            </div>
+                            <div class="panel panel-default">
+                                <div class="panel-heading" role="tab" id="headingTwo">
+                                    <h4 class="panel-title">
+                                        <a class="collapsed" role="button" data-toggle="collapse"
+                                           data-parent="#accordion"
+                                           href="#collapseTwo" aria-expanded="false" aria-controls="collapseTwo">
+                                            Collapsible Group Item #2
+                                        </a>
+                                    </h4>
+                                </div>
+                                <div id="collapseTwo" class="panel-collapse collapse" role="tabpanel"
+                                     aria-labelledby="headingTwo">
+                                    <div class="panel-body">
+                                        Anim pariatur cliche reprehenderit, enim eiusmod high life accusamus terry
+                                        richardson ad squid. 3
 
-                </tr>
-                <tr>
-                    <th scope="row">2</th>
-                    <td>@fake</td>
-                    <td>fake123</td>
-                    <td>faletom</td>
-                    <td>fakejack</td>
-                    <td>fake23</td>
-                    <td>fake23</td>
-                    <td>fakedate</td>
+                                    </div>
+                                </div>
+                            </div>
+                            <div class="panel panel-default">
+                                <div class="panel-heading" role="tab" id="headingThree">
+                                    <h4 class="panel-title">
+                                        <a class="collapsed" role="button" data-toggle="collapse"
+                                           data-parent="#accordion"
+                                           href="#collapseThree" aria-expanded="false"
+                                           aria-controls="collapseThree">
+                                            Collapsible Group Item #3
+                                        </a>
+                                    </h4>
+                                </div>
+                                <div id="collapseThree" class="panel-collapse collapse" role="tabpanel"
+                                     aria-labelledby="headingThree">
+                                    <div class="panel-body">
+                                        Anim pariatur cliche reprehenderit, enim eiusmod high life accusamus terry
+                                        richardson ad squid. 3
+
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
 
 
-                </tr>
-                <tr>
-                    <th scope="row">3</th>
-                    <td>@fake</td>
-                    <td>fake123</td>
-                    <td>faletom</td>
-                    <td>fakejack</td>
-                    <td>fake23</td>
-                    <td>fake23</td>
-                    <td>fakedate</td>
+                    </div>
+                </div>
+
+            </div>
 
 
-                </tr>
-                </tbody>
-            </table>
         </div>
     </div>
     <!-- DATA TABLE END -->
 
+
+    <div id="test">
+
+    </div>
 </div>
 
 <script>
@@ -450,19 +577,48 @@
             'success': function (data) {
 
                 // data is from the server side
-                $('#dataTableBody').empty();
-                chart.dataProvider = data;
 
-                chart.validateData();
-                for (var i = 0; i < data.length; i++) {
-                    var s = data[i];
-                    $('#dataTableBody').append('<tr> <th scope="row">' + (i + 1) + '</th> <td>' + s.username + '</td> <td>' + s.password + '</td> <td>' + s.last_name + '</td> <td>' + s.first_name + '</td> <td>' + s.age + '</td> <td>' + s.timestamp + '</td> <td>' + s.date + '</td></tr>');
+
+
+                console.log(data.output);
+
+
+                // showing Output tab table
+                $('#mixedTableBody').empty();
+                for(var i=0; i < data.output.length; i++){
+                    var o = data.output[i];
+                    alert(o);
+                    $('#outputTableBody').append('<tr> <th scope="row">' + (i + 1) + '</th> <td>' + o.module_name + '</td> <td>' + o.output_value + '</td> <td>' + o.tag + '</td> <td>' + o.time_stamp + '</td></tr>');
+                }
+
+
+                // showing Log tab table
+                $('#logAccordion').empty();
+
+                for (var i = 0; i < data.log.length; i++) {
+                    var l = data.log[i];
+                    var content = '<div class="panel panel-default">'+
+                                '<div class="panel-heading" role="tab" >'+
+                                    '<h4 class="panel-title">'+
+                                        '<a role="button" data-toggle="collapse" data-parent="#accordion" href="#collapse'+i+'" aria-expanded="true" aria-controls="collapse'+i+'">'+
+                                            l.module_name + l.time_stamp+
+                                        '</a>'+
+                                    '</h4>'+
+                                '</div>'+
+                                '<div id="collapse'+i+'" class="panel-collapse collapse in" role="tabpanel" aria-labelledby="headingOne">'+
+                                    '<div class="panel-body">'+
+                                        l.log_message
+                                    '</div>'+
+                                '</div>'+
+                            '</div>';
+                    $('#logAccordion').append(content);
+
                 }
             },
             'error': function () {
-                $('#dataTableBody').empty();
+                $('#mixedTableBody').empty();
                 //alert('Whoops, It seems we got a slight problem here');
-                $('#dataTableBody').append("<tr> <td colspan='3'> We got a problem here </td> </tr>");
+                $('#mixedTableBody').append("<tr> <td colspan='3'> We got a problem here </td> </tr>");
             }
 
         });

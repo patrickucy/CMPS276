@@ -59,6 +59,15 @@ def get_data(request):
     start_date = datetime.date(start_year, start_month, start_day)
     end_date = datetime.date(end_year, end_month, end_day)
 
-    data = [obj.as_json() for obj in FakeData.objects.filter(date__range=(start_date, end_date)).order_by('timestamp')]
+    data_output = [obj.as_json() for obj in
+                   FakeOutput.objects.filter(time_stamp__range=(start_date, end_date)).order_by('time_stamp')]
 
+    log_output = [obj.as_json() for obj in FakeLog.objects.filter(time_stamp__range=(start_date, end_date)).order_by('time_stamp')]
+
+
+    data = {
+        'output': data_output,
+        'log': log_output
+    }
+    print '*****', data, '******'
     return HttpResponse(json.dumps(data), content_type="application/json")

@@ -24,3 +24,33 @@ class FakeData(models.Model):
             'date': str(self.date),
             'timestamp': str(self.timestamp)
         }
+
+
+class FakeOutput(models.Model):
+    time_stamp = models.DateField()
+    module_name = models.CharField(max_length=50)  # temperature, humidity, short description
+    output_value = models.FloatField()
+    tag = models.CharField(max_length=50)
+
+    def as_json(self):
+        return {
+            'module_name': self.module_name,
+            'output_value': self.output_value,
+            'tag': self.tag,
+            'time_stamp': str(self.time_stamp)
+        }
+
+
+class FakeLog(models.Model):
+    time_stamp = models.DateField()
+    module_name = models.CharField(max_length=50)
+    log_level = models.IntegerField()
+    log_message = models.TextField()
+
+    def as_json(self):
+        return {
+            'module_name': self.module_name,
+            'log_level': self.log_level,
+            'log_message': self.log_message,
+            'time_stamp': str(self.time_stamp)
+        }
